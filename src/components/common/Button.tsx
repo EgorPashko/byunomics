@@ -11,7 +11,7 @@ export type ButtonProps = {
   disabled?: boolean;
   loading?: boolean;
   type?: ButtonType;
-  htmlType?: "submit";
+  htmlType?: "submit" | "button";
 };
 
 const ButtonComponent = forwardRef<HTMLButtonElement, ButtonProps>(

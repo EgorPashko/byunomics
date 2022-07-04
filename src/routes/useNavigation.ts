@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 
 export enum NavigationUrls {
   "create" = "/create",
+  "details" = "/details/:id",
   "listing" = "/listing",
 }
 
@@ -10,5 +11,7 @@ export const useNavigation = () => {
 
   return {
     goToIntermediaryListing: () => navigate(NavigationUrls.listing),
+    goToCreateIntermediary: () => navigate(NavigationUrls.create),
+    goToEditIntermediary: (id = "") => navigate(NavigationUrls.details.replace(":id", id.toString())),
   };
 };
