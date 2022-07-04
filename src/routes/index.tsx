@@ -7,6 +7,7 @@ const Routes = () => (
   <BaseRoutes>
     {IntermediaryRoutes()}
     <Route element={<IntermediaryListingPage />} path="/" />
+    <Route element={<IntermediaryListingPage />} />
   </BaseRoutes>
 );
 
