@@ -1,6 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "homepage": "https://EgorPashko.github.io/byunomics",
   "private": true,
   "dependencies": {
     "@testing-library/react": "^13.0.0",
@@ -11,8 +12,10 @@
     "antd": "^4.21.5",
     "axios": "^0.27.2",
     "eslint-config-airbnb-typescript": "^17.0.0",
+    "gh-pages": "^4.0.0",
     "i18next": "^19.9.0",
     "i18next-browser-languagedetector": "^6.1.0",
+    "locales": "link:./public/locales",
     "lodash": "^4.17.21",
     "prettier": "^2.7.1",
     "qs": "^6.11.0",
@@ -24,7 +27,6 @@
     "react-router": "6.3.0",
     "react-router-dom": "6.3.0",
     "react-scripts": "5.0.1",
-    "locales": "link:./public/locales",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
@@ -32,7 +34,6 @@
     "@alienfast/i18next-loader": "^1.1.4",
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/lodash": "^4.14.182",
-    "eslint-plugin-unicorn": "^37.0.1",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^4.5.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -43,12 +44,15 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-sonarjs": "^0.9.1",
+    "eslint-plugin-unicorn": "^37.0.1",
     "eslint-plugin-unused-imports": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
     "test": "react-scripts test",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .ts"
   },
