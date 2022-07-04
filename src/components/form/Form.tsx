@@ -5,7 +5,7 @@ import type { FieldValues, SubmitHandler, UseFormProps, UseFormReturn } from "re
 import { useForm, useFormContext } from "react-hook-form";
 
 import type { FormValidation } from "../../lib/other/validation";
-import { createElement } from "./utils/elements";
+import { createElement } from "./elements";
 
 export type FormProps<T extends FieldValues> = {
   layout?: "horizontal" | "vertical" | "inline";

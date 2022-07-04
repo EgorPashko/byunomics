@@ -2,7 +2,7 @@ import type { ReactElement, ReactNode } from "react";
 import React from "react";
 import type { Control, FieldValues, UseFormReturn } from "react-hook-form";
 
-import type { FormValidation } from "../../../lib/other/validation";
+import type { FormValidation } from "../../lib/other/validation";
 
 const isInput = (el: ReactNode): el is ReactElement<{ name: string }> =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,no-underscore-dangle,@typescript-eslint/no-explicit-any
