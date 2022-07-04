@@ -1,0 +1,26 @@
+{
+  "alphabetic": "Please enter alphabetical characters only",
+  "email": "Invalid email",
+  "required": "{{label}} is required",
+  "min": "The minimum value is {{value}}",
+  "max": "The maximum value is {{value}}",
+  "minLength": "The minimum field length is {{value}} characters",
+  "maxLength": "The maximum field length is {{value}} characters",
+  "pattern": "@todo",
+  "validate": "@todo",
+  "valueAsNumber": "@todo",
+  "value": "@todo",
+  "valueAsDate": "@todo",
+  "setValueAs": "@todo",
+  "apiErrors": {
+    "PROJECT_STARTDATE_ENDDATE_ERROR": "Start Date \"{{startDate}}\" and EndDate \"{{endDate}}\" must be within the Start Date \"{{projectStartDate}}\" and End Date \"{{projectEndDate}}\" of the project"
+  },
+  "_?": "",
+  "shouldUnregister": "",
+  "maxImageSize": "The file size of the image should be less than {{value}}",
+  "maxFileSize": "The file size should be less than {{value}}",
+  "onBlur": "",
+  "disabled": "",
+  "deps": "",
+  "onChange": ""
+}
