@@ -9,7 +9,6 @@ import queryClient from "./lib/api/queryClient";
 import i18n from "./lib/other/i18n";
 import Routes from "./routes";
 
-console.info("update version 1");
 const App = () => {
   return (
     <I18nextProvider i18n={i18n}>
