@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/byunomics/static/css/main.c57a3301.css",
+    "main.js": "/byunomics/static/js/main.44309cdd.js",
+    "static/js/787.28cb0dcd.chunk.js": "/byunomics/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/byunomics/index.html",
+    "main.c57a3301.css.map": "/byunomics/static/css/main.c57a3301.css.map",
+    "main.44309cdd.js.map": "/byunomics/static/js/main.44309cdd.js.map",
+    "787.28cb0dcd.chunk.js.map": "/byunomics/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c57a3301.css",
+    "static/js/main.44309cdd.js"
+  ]
+}

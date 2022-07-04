@@ -1,0 +1,13 @@
+{
+  "cancel": "Cancel",
+  "input": {
+    "placeholder": "Enter {{label}}"
+  },
+  "select": {
+    "placeholder": "Select {{label}}"
+  },
+  "autocomplete": {
+    "placeholder": "Select or enter {{label}}"
+  },
+  "save": "Save"
+}
