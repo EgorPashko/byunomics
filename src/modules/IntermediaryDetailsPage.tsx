@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import type { ControlProps } from "components/form/types";
+import type { ControlProps } from "components/Form/types";
 import { randomId } from "lib/other/random";
 import { useMemo } from "react";
 import { useFieldArray, useWatch } from "react-hook-form";
@@ -7,10 +7,11 @@ import { useFieldArray, useWatch } from "react-hook-form";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router";
 
-import { api } from "../components/form/api";
-import type { UseFormResult } from "../components/form/useForm";
-import { useSharedForm } from "../components/form/useForm";
+import { api } from "../components/Form/api";
+import type { UseFormResult } from "../components/Form/useForm";
+import { useSharedForm } from "../components/Form/useForm";
 import type { Intermediary } from "../lib/api/models";
 import useRequest from "../lib/hooks/useRequest";
 import { createValidation } from "../lib/other/validation";
@@ -88,7 +89,11 @@ const Type = ({
             />
           </div>
         ))}
-      {type === "Dropdown" && <Button onClick={() => append({ id: randomId() })}>Add new entity</Button>}
+      {type === "Dropdown" && (
+        <div className={styles.buttons}>
+          <Button onClick={() => append({ id: randomId() })}>Add new entity</Button>
+        </div>
+      )}
     </div>
   );
 };
@@ -96,7 +101,12 @@ const Type = ({
 const IntermediaryDetailsPage = () => {
   const { goToIntermediaryListing } = useNavigation();
   const { t } = useTranslation("intermediary");
+  const { id } = useParams();
 
+  const intermediary =
+    useRequest(["intermediary", id], () => (id ? api.getIntermediary(id) : Promise.resolve(undefined)), {
+      suspense: true,
+    }) || {};
   const formResult = useSharedForm(async (data: Intermediary) => {
     // TODO: remove hardcode
     if (data.type === "Range") {
@@ -107,8 +117,12 @@ const IntermediaryDetailsPage = () => {
       // Remove all fields related to a type Range
     }
 
-    api.createIntermediary(data);
-    // goToIntermediaryListing();
+    if (id) {
+      api.updateIntermediary(data);
+    } else {
+      api.createIntermediary(data);
+    }
+    goToIntermediaryListing();
   });
   const defaultValue = useMemo(() => ({ pairs: [{ id: randomId(), value: "", option: "" }] }), []);
 
@@ -118,12 +132,14 @@ const IntermediaryDetailsPage = () => {
     <div className={styles.layout}>
       <h1>{t("createProduct")}</h1>
       <div className={styles.form}>
-        <Form defaultValues={defaultValue} validation={validation}>
+        <Form defaultValues={id ? intermediary : defaultValue} validation={validation}>
           <Input.Text label="Name" name="name" />
           <Input.Text label="Cost" name="order" type="number" />
           <Type formResult={formResult} name="type" />
-          <FormButton.Cancel onClick={goToIntermediaryListing} />
-          <FormButton.Save />
+          <div className={styles.buttons}>
+            <FormButton.Cancel onClick={goToIntermediaryListing} />
+            <FormButton.Save />
+          </div>
         </Form>
       </div>
     </div>

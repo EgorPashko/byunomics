@@ -1,4 +1,5 @@
 export type Intermediary = {
+  id?: string;
   createdAt: string;
   name: string;
   order: number;
