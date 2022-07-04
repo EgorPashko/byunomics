@@ -1,15 +1,14 @@
-import { useNavigate } from "react-router"; 
+import { useNavigate } from "react-router";
 
 export enum NavigationUrls {
-  "details" = "/details",
+  "create" = "/create",
   "listing" = "/listing",
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export const useNavigation = <T extends object = object>() => {
+export const useNavigation = () => {
   const navigate = useNavigate();
 
   return {
-    goToDetails: () => navigate(NavigationUrls.details)
+    goToIntermediaryListing: () => navigate(NavigationUrls.listing),
   };
 };

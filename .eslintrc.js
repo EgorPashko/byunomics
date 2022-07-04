@@ -6,16 +6,17 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:eslint-comments/recommended",
+    "plugin:jest/recommended",
     "plugin:react/recommended",
-    "plugin:testing-library/recommended",
     "plugin:import/warnings",
     "plugin:import/typescript",
     "prettier",
   ],
-  plugins: ["simple-import-sort", "import", "unused-imports", "i18next", "@emotion", "sonarjs"],
+  plugins: ["simple-import-sort", "import", "jest", "unused-imports", "i18next", "sonarjs"],
   env: {
     browser: true,
     es6: true,
+    jest: true,
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -46,6 +47,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/display-name": "off",
     "no-void": "off",
+    "jest/no-disabled-tests": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
     "import/no-named-as-default": "off",
@@ -106,47 +108,4 @@ module.exports = {
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
   },
-  overrides: [
-    {
-      files: [
-        "src/components/common/*.tsx",
-        "src/components/Table/**/*.ts*",
-        "src/components/Form/*.ts*",
-        "src/components/layout/components/*.ts*",
-      ],
-      rules: {
-        "no-restricted-imports": [
-          "error",
-          {
-            paths: [
-              "lib/swagger/generated",
-              {
-                name: "react",
-                importNames: ["FC"],
-                message: "Write Function Components as regular functions with props.",
-              },
-              {
-                name: "@emotion/css",
-                importNames: ["css"],
-                message: "Import from @emotion/react.",
-              },
-            ],
-            patterns: ["components/Form/*", "models/*", "lib/api/responses", "../../*"],
-          },
-        ],
-      },
-    },
-    {
-      files: ["src/models/*.ts", "src/lib/api/*.ts"],
-      rules: {
-        "no-restricted-imports": ["off"],
-      },
-    },
-    {
-      files: ["src/lib/swagger/generated.ts"],
-      rules: {
-        "eslint-comments/no-unlimited-disable": "off",
-      },
-    },
-  ],
 };
